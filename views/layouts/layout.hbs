@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+
+<html lang="ru">
+<head>
+    <title>{{ title }}</title>
+    <meta charset="utf-8" />
+    <script src="http://code.jquery.com/jquery-1.8.3.js"></script>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="./images/favicon.png" type="image/png">
+    <link rel="stylesheet" href="./css/null.css">
+</head>
+<body style="opacity:0; transition: 1.5s;">
+
+    {{{ body }}}
+
+    <script>
+        $(document).ready(function() {    
+          $("body").css("opacity", "1");
+        });
+      </script>
+    <p class="not_supported">Недоступно для моб. устройств.</p>
+    <p class="not_supported">Моб. версия сайта - <a href="https://m.teamsearch.ru">m.teamsearch.ru</a></p>
+</body>
+</html>
