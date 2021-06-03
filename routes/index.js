@@ -1,4 +1,4 @@
-const System = require("../index.js");
+const System = require("../index.js").System;
 let router = require("express").Router();
 
 router.get("/", (request, response) => {
@@ -6,5 +6,6 @@ router.get("/", (request, response) => {
                 title: "  TeamSearch"
         });
 });
+
 
 module.exports = router;
