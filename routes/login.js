@@ -1,4 +1,4 @@
-const System = require("../index.js");
+const System = require("../index.js").System;
 let router = require("express").Router();
 
 router.get("/", (request, response) => {
@@ -9,7 +9,7 @@ router.get("/", (request, response) => {
 
 router.post("/", (request, response) => {
         let errors = [];
-	let user = sequelize.models.posts.findOne({ where: { 
+	let user = System.db.models.users.findOne({ where: { 
 		email: request.body.email
 	}});
 

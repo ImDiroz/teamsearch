@@ -16,7 +16,7 @@ router.post("/", function (request, response) {
 	if (request.body.login.trim() == "") errors.push("Введите login");
 	if (request.body.password.trim() == "") errors.push("Введите пароль");
 	if (request.body.password != request.body.passwordSecond) errors.push("Пароль не совпадает с подтверждением");
-	if (sequelize.models.posts.findOne({ where: { 
+	if (System.db.models.users.findOne({ where: { 
 		login: request.body.login,
 		email: request.body.email
 	 }}) != undefined) errors.push("Такой пользователь уже существует");
