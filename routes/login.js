@@ -7,10 +7,10 @@ router.get("/", (request, response) => {
         });
 });
 
-router.post("/", (request, response) => {
+router.post("/", async (request, response) => {
         let errors = [];
-	let user = System.db.models.users.findOne({ where: { 
-		email: request.body.email
+	let user = await System.db.models.users.findOne({ where: { 
+		login: request.body.login
 	}});
 
         console.log(user);
