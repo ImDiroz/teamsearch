@@ -2,12 +2,16 @@ const System = require("../index.js").System;
 let router = require("express").Router();
 
 router.get("/", (request, response) => {
-        response.render("login", {
-               	title: "  TeamSearch | Авторизация "
-        });
+	if (request.session.logged_user) response.redirect("/profile"); // if logged in
+
+	response.render("login", {
+		title: "  TeamSearch | Авторизация "
+	});
 });
 
 router.post("/", async (request, response) => {
+	if (request.session.logged_user) response.redirect("/profile"); // if logged in
+
 	let errors = [];
 	let user = await System.db.models.users.findOne({ where: { 
 		login: request.body.login

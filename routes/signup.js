@@ -2,12 +2,16 @@ const System = require("../index.js").System;
 let router = require("express").Router();
 
 router.get("/", (request, response) => {
+	if (request.session.logged_user) response.redirect("/profile"); // if logged in
+
 	response.render("signup", {
 			title: "  TeamSearch | Регистрация"
 	});
 });
 
 router.post("/", async (request, response) => {
+	if (request.session.logged_user) response.redirect("/profile"); // if logged in
+	
 	let errors = [];
 
 	// validating
