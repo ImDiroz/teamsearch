@@ -6,6 +6,7 @@ System.Setup();
 app.use("/login", require("./routes/login.js")); 
 app.use("/signup", require("./routes/signup.js")); 
 app.use("/profile", require("./routes/profile.js")); 
+app.use("/settings", require("./routes/settings.js")); 
 app.use("/", require("./routes/index.js"));
 
 app.listen(80);
