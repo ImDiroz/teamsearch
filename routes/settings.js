@@ -6,14 +6,14 @@ router.use((request, response, next) => {
 	next();
 });
 
-router.get("/", async (request, response) => {
+router.get("/", (request, response) => {
 	response.render("settings", {
 			title: "  TeamSearch | " + request.session.logged_user.login,
             session: request.session.logged_user
 	});
 });
 
-router.post("/", (request, response) => {
+router.post("/", async (request, response) => {
     // ------------ files update ------------
     let mimeTypes = ["image/gif", "image/jpeg", "image/pjpeg", "image/png", "image/tiff", "image/vnd.microsoft.icon", "image/webp"];
     let path = `./user/${request.session.logged_user.login}${request.files.avatarFile.name}`;
