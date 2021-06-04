@@ -16,19 +16,20 @@ router.get("/", (request, response) => {
 router.post("/", async (request, response) => {
     // ------------ files update ------------
     let mimeTypes = ["image/gif", "image/jpeg", "image/pjpeg", "image/png", "image/tiff", "image/vnd.microsoft.icon", "image/webp"];
-    let path = `./user/${request.session.logged_user.login}${request.files.avatarFile.name}`;
-    if (mimeTypes.indexOf(request.files.avatarFile.mimetype) != -1) request.files.avatarFile.mv(path, (error) => {
+    let path = `${request.session.logged_user.login}${request.files.avatarFile.name}`;
+    if (mimeTypes.indexOf(request.files.avatarFile.mimetype) != -1) request.files.avatarFile.mv("/static/user/" + path, (error) => {
         if (error) response.send("Files move error<br>");
     });
-    await sequelize.models.comments.update({ file: path }, { where: { id: request.session.logged_user.id } });
-
-    // -------------  nickname update   ----------
+    // -------------  update   ----------
     
-    await sequelize.models.comments.update({ login: request.body.nickname }, { where: { id: request.session.logged_user.id } });
+    await sequelize.models.comments.update({ 
+            login: request.body.nickname,
+            description: request.body.description,
+            file: "./user/" + path
+        }, {
+            where: { id: request.session.logged_user.id } 
+    });
 
-    // -------------  description update  -------
-
-    await sequelize.models.comments.update({ description: request.body.description }, { where: { id: request.session.logged_user.id } });
 
     response.render("settings", {
         title: "  TeamSearch | " + request.session.logged_user.login,
