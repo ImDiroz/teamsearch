@@ -20,9 +20,13 @@ router.post("/", async (request, response) => {
         System.bcrypt.compare(request.body.password, user.dataValues.password, (err, resultPass) => {
                 console.log("b");
                 if (resultPass) { // password is successfully compared and right
+                        console.log("d");
                         request.session.logged_user = user.dataValues; // save to session
-                        return response.redirect("/profile");  // redirect to profile
+                        response.render("login", {
+                                title: "  TeamSearch | Авторизация "
+                        });
                 }
+                console.log("h");
                 return errors.push("Неверный логин или пароль!");
         });
 

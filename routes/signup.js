@@ -17,8 +17,6 @@ router.post("/", async (request, response) => {
 		email: request.body.email
 	}});
 
-	console.log(findUser);
-
 	if (request.body.email.trim() == "") errors.push("Введите email");
 	if (request.body.login.trim() == "") errors.push("Введите login");
 	if (request.body.password.trim() == "") errors.push("Введите пароль");
