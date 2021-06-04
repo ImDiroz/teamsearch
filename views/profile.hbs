@@ -27,7 +27,7 @@
 <div class="content">
     <div class="column__one">
         <div class="section__one">
-            <img src="./images/profile/avatar.png" class="avatar">
+            <img src="{{ session.file }}" class="avatar">
             <div class="row__one">
                 <div class="microrow__one">
                     <h1>{{ session.login }}</h1>
@@ -36,7 +36,7 @@
                     <object style="margin-left: 12px;" type="image/svg+xml" data="./images/profile/vip.svg" width="45" height="45"></object>
                 </div>
                 <div class="microrow__two">
-                    <p>Таким образом начало повседневной работы по формированию позиции представляет собой интересный эксперимент проверки модели развития.</p>
+                    <p>{{ session.description }}</p>
                 </div>
             </div>
         </div>

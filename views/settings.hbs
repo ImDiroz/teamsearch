@@ -1,0 +1,44 @@
+<link rel="stylesheet" href="./css/after-register.css">
+
+
+<header class="header">
+    <a href="/profile"><div class="goto_profile">
+        <div class="svg_arrow_down"></div>
+        <img src="./images/main/Profileicon.png" class="logo-h-and-w" width="73" height="73">
+        <h1 class="main_goto_profile_text">Профиль</h1>
+    </div></a>
+    <div class="header_menu_box">
+        <h1 class="header_menu"><a href="/">Главная</a></h1>
+        <h1 class="header_menu"><a href="/search">Поиск</a></h1>
+        <h1 class="header_menu"><a href="/shop">Магазин</a></h1>
+    </div>
+    <div class="logo__title">
+        <img src="./images/main/logo.png" width="75" height="68">
+        <a href="/"><h1 class="teamsearch_logo">TeamSearch</h1></a>
+    </div>
+</header>
+<div class="content-settings">
+    <div class="column__one">
+        <form method="POST">
+            <div class="section__one">
+                <div style="width: 220px;">
+                    <img src="{{session.file}}" class="avatar" style="margin-bottom: 10px;">
+                    <input type="file" name="avatarFile">
+                </div>
+                <div class="row__one">
+                    <div class="microrow__one">
+                        <input class="name-input" value="{{session.login}}" type="text" name="nickname">
+                        <object style="margin-left: 12px;" type="image/svg+xml" data="./images/settings/edit.svg" width="45" height="45"></object>
+                    </div>
+                    <div class="microrow__two">
+                        <textarea class="desc-textarea" name="description"></textarea>
+                        <object style="margin-left: 12px;" type="image/svg+xml" data="./images/settings/edit.svg" width="45" height="45"></object>
+                    </div>
+                </div>
+            </div>
+            <div class="section__two">
+                <a href="/profile"><div class="main-button">Сохранить</div></a>
+            </div>
+        </form>
+    </div>
+</div>

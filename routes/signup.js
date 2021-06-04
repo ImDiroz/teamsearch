@@ -8,7 +8,7 @@ router.use((request, response, next) => {
 
 router.get("/", (request, response) => {
 	response.render("signup", {
-			title: "  TeamSearch | Регистрация"
+			title: "TeamSearch | Регистрация"
 	});
 });
 
@@ -37,12 +37,15 @@ router.post("/", async (request, response) => {
         	System.db.models.users.create({ // creating user
 				email: request.body.email,
 				login: request.body.login,
-				password: hash // hash of password
+				password: hash, // hash of password
+				status: "",
+				file: "./images/profile/avatar.png",
+				description: "Нам не дали"
 		 	});
     	});
 
 	response.render("signup", {
-            title: "  TeamSearch | Успешная регистрация "
+            title: "TeamSearch | Успешная регистрация"
     });
 });
 

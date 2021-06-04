@@ -32,6 +32,15 @@ let users = sequelize.define('users', {
   },
   email: {
     type: Sequelize.DataTypes.STRING
+  },
+  status: {
+    type: Sequelize.DataTypes.STRING
+  },
+  file: {
+    type: Sequelize.DataTypes.STRING
+  },
+  description: {
+    type: Sequelize.DataTypes.STRING
   }
 }, {
   timestamps: true // Колонки createdAt и updatedAt будут созданы автоматически
