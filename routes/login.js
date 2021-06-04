@@ -27,7 +27,6 @@ router.post("/", async (request, response) => {
         });
 
         if (errors.length != 0) { // if errors was found 
-                console.log("c");
 		response.send(errors[0]);
 		response.set("Connection", "close"); // closing connection
 	}

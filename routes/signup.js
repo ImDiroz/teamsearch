@@ -12,14 +12,18 @@ router.post("/", function (request, response) {
 
 	// validating
 
+	let findUser = System.db.models.users.findOne({ where: { 
+		login: request.body.login,
+		email: request.body.email
+	}});
+
+	console.log(findUser);
+
 	if (request.body.email.trim() == "") errors.push("Введите email");
 	if (request.body.login.trim() == "") errors.push("Введите login");
 	if (request.body.password.trim() == "") errors.push("Введите пароль");
 	if (request.body.password != request.body.passwordSecond) errors.push("Пароль не совпадает с подтверждением");
-	if (System.db.models.users.findOne({ where: { 
-		login: request.body.login,
-		email: request.body.email
-	 }}) != undefined) errors.push("Такой пользователь уже существует");
+	if (findUser != undefined) errors.push("Такой пользователь уже существует");
 
 	if (errors.length != 0) { // if errors was found 
 		response.send(errors[0]);
