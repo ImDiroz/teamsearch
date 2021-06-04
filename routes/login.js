@@ -15,7 +15,10 @@ router.post("/", async (request, response) => {
 
         if (user == undefined) errors.push("Такого пользователя не существует!");
 
+        console.log("a");
+
         System.bcrypt.compare(request.body.password, user.dataValues.password, (err, resultPass) => {
+                console.log("b");
                 if (resultPass) { // password is successfully compared and right
                         request.session.logged_user = user.dataValues; // save to session
                         return response.redirect("/profile");  // redirect to profile
@@ -24,6 +27,7 @@ router.post("/", async (request, response) => {
         });
 
         if (errors.length != 0) { // if errors was found 
+                console.log("c");
 		response.send(errors[0]);
 		response.set("Connection", "close"); // closing connection
 	}
