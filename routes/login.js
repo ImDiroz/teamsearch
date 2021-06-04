@@ -15,7 +15,7 @@ router.post("/", async (request, response) => {
 
         if (user == undefined) errors.push("Такого пользователя не существует!");
 
-        bcrypt.compare(request.body.password, user.dataValues.password, (err, resultPass) => {
+        System.bcrypt.compare(request.body.password, user.dataValues.password, (err, resultPass) => {
                 if (resultPass) { // password is successfully compared and right
                         request.session.logged_user = user.dataValues; // save to session
                         return response.redirect("/profile");  // redirect to profile
