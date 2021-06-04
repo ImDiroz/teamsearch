@@ -13,7 +13,7 @@ router.post("/", async (request, response) => {
 		login: request.body.login
 	}});
 
-        if (user == undefined) errors.push("Такого пользователя не существует!");
+        if (user == undefined) response.send("Такого пользователя не существует!");
 
         console.log("a");
 
@@ -26,14 +26,9 @@ router.post("/", async (request, response) => {
                                 title: "  TeamSearch | Авторизация "
                         });
                 }
-                console.log("h");
-                return errors.push("Неверный логин или пароль!");
+                else response.send("Неверный логин или пароль!");
         });
 
-        if (errors.length != 0) { // if errors was found 
-		response.send(errors[0]);
-		response.set("Connection", "close"); // closing connection
-	}
 });
 
 module.exports = router;
