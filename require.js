@@ -6,10 +6,12 @@ const path = module.exports.path = require('path');
 const bodyParser = module.exports.bodyParser = require("body-parser");
 const bcrypt = module.exports.bcrypt = require('bcrypt');
 const db = module.exports.db = require("./db.js");
+const https = module.exports.https = require("https");
+const fs = module.exports.fs = require("fs");
 var session = module.exports.session = require('express-session');
 
 //  setting up
-let Setup = () => {
+let Setup = module.exports.Setup = () => {
 	// устанавливаем настройки для файлов layout
 	console.log("Express handlebars");
 
@@ -37,6 +39,15 @@ let Setup = () => {
 		saveUninitialized: true,
 		resave: false,
 	}));
+
+	//Security
+	
+	app.use(require('helmet')());
 }
 
-module.exports.Setup = Setup;
+let httpsRedirectInstall = module.exports.httpsRedirectInstall = () => {
+    app.enable('trust proxy')
+    app.use((request, response, next) => {
+    	request.secure ? next() : response.redirect('https://' + request.headers.host + request.url)
+    })
+};

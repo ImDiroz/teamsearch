@@ -163,7 +163,6 @@
 .row__one .microrow__two {
     display: flex;
     flex-direction: column;
-    align-items: center;
 }
 
 .microrow__one h1 {
@@ -178,6 +177,7 @@
     font-weight: normal;
     font-size: 18px;
     color: #000000;
+	margin-top: 10px;
 }
 
 .avatar {
