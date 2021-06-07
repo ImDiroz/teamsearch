@@ -1,8 +1,15 @@
 const System = module.exports.System = require("./require.js");
 const app = module.exports.app = System.app;
+
+// server setup
+
 System.Setup();
 System.httpsRedirectInstall();
-// routes
+
+// handlebars setup
+
+require("./handlebars.js").handlebarsCreateHelpers();
+// routes   
 
 app.use("/login", require("./routes/login.js")); 
 app.use("/signup", require("./routes/signup.js")); 

@@ -33,9 +33,11 @@
 			<div class="row__one">
 				<div class="microrow__one">
 					<h1>{{ session.login }}</h1>
-					<img style="margin-left: 12px;" src="./images/profile/verifed.svg" />
-					<img style="margin-left: 12px;" src="./images/profile/dev.svg" />
-					<img style="margin-left: 12px;" src="./images/profile/vip.svg" />
+					{{#each status}}
+						{{#ifeq this "v"}} <img style="margin-left: 12px;" src="./images/profile/verifed.svg" /> {{/ifeq}}
+						{{#ifeq this "a"}} <img style="margin-left: 12px;" src="./images/profile/dev.svg" /> {{/ifeq}}
+						{{#ifeq this "c"}} <img style="margin-left: 12px;" src="./images/profile/vip.svg" /> {{/ifeq}}
+					{{/each}}
 				</div>
 				<div class="microrow__two">
 					<p>{{ session.description }}</p>

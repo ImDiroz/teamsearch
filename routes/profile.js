@@ -12,9 +12,12 @@ router.get("/", async (request, response) => {
 			user: request.session.logged_user.login
 		}
 	});
+	let user = request.session.logged_user;
+
 	response.render("profile", {
-			title: "  TeamSearch | " + request.session.logged_user.login,
-			session: request.session.logged_user,
+			title: "  TeamSearch | " + user.login,
+			session: user,
+			status: user.status.split(),
 			posts: posts
 	});
 });
