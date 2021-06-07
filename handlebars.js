@@ -1,4 +1,4 @@
-let Handlebars = require("express-handlebars");
+let Handlebars = require("hbs");
 
 Handlebars.registerHelper('ifeq', function (a, b, options) {
     if (a == b) { return options.fn(this); }
