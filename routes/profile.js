@@ -9,7 +9,7 @@ router.use((request, response, next) => {
 router.get("/", async (request, response) => {
 	let posts = await System.db.models.posts.findAll({
 		where: {
-			login: request.session.logged_user.login
+			user: request.session.logged_user.login
 		}
 	});
 	response.render("profile", {
