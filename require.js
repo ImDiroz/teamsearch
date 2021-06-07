@@ -16,10 +16,10 @@ let Setup = module.exports.Setup = () => {
 	console.log("Express handlebars");
 
 	app.engine("hbs", expressHbs({
-        		layoutsDir: "views/layouts",
-        		defaultLayout: "layout",
-        		extname: "hbs"
-    		}
+				layoutsDir: "views/layouts",
+				defaultLayout: "layout",
+				extname: "hbs"
+			}
 	));
 	app.set("view engine", "hbs");
 	
@@ -46,8 +46,8 @@ let Setup = module.exports.Setup = () => {
 }
 
 let httpsRedirectInstall = module.exports.httpsRedirectInstall = () => {
-    app.enable('trust proxy')
-    app.use((request, response, next) => {
-    	request.secure ? next() : response.redirect('https://' + request.headers.host + request.url)
-    })
+	app.enable('trust proxy')
+	app.use((request, response, next) => {
+		request.secure ? next() : response.redirect('https://' + request.headers.host + request.url)
+	})
 };

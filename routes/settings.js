@@ -22,7 +22,7 @@ router.post("/", async (request, response) => {
     });
     // -------------  update   ----------
     
-    await sequelize.models.comments.update({ 
+    await sequelize.models.users.update({ 
             login: request.body.nickname,
             description: request.body.description,
             file: "./user/" + path

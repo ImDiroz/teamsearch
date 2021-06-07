@@ -9,7 +9,7 @@ router.use((request, response, next) => {
 router.get("/", (request, response) => {
 	response.render("profile", {
 			title: "  TeamSearch | " + request.session.logged_user.login,
-            session: request.session.logged_user
+			session: request.session.logged_user
 	});
 });
 
