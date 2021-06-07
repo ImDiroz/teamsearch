@@ -1,5 +1,5 @@
 const express = module.exports.express = require("express");
-const expressHbs = module.exports.expressHbs = require("express-handlebars");
+const expressHbs = module.exports.expressHbs = require("./handlebars.js");
 const hbs = module.exports.hbs = require("hbs");
 const app = module.exports.app = express();
 const path = module.exports.path = require('path');

@@ -6,9 +6,6 @@ const app = module.exports.app = System.app;
 System.Setup();
 System.httpsRedirectInstall();
 
-// handlebars setup
-
-require("./handlebars.js").handlebarsCreateHelpers();
 // routes   
 
 app.use("/login", require("./routes/login.js")); 
