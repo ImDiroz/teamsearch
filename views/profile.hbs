@@ -53,90 +53,24 @@
 		</div>
 	</div>
 	<div class="column__two">
-		<div class="card">
-			<div class="section__one">
-				<h1 class="gamename">CS GO</h1>
-				<h1 class="nickname">dasdasd</h1>
+		{{#each posts }}
+			<div class="card {{#if this.vip}} card-vip {{/if}}">
+				<div class="section__one">
+					<h1 class="gamename">{{this.dataValues.game}}</h1>
+					<h1 class="nickname">{{this.dataValues.user}}</h1>
+				</div>
+				<div class="section__two">
+					<h1 class="stepinfo">Discord:</h1>
+					<h1 class="primeinfo">{{this.dataValues.discord}}</h1>
+				</div>
+				<div class="section__three">
+					<h1 class="stepinfo">Имя:</h1>
+					<h1 class="primeinfo">{{this.dataValues.name}}</h1>
+				</div>
+				<div class="section__four">
+					<p>Задача организации, в особенности же сложившаяся структура организации представляет собой интересный эксперимент проверки систем массового участия. Не следует, однако забывать, что консультация с широким активом позволяет оценить значение существенных финансовых и административных условий.</p>
+				</div>
 			</div>
-			<div class="section__two">
-				<h1 class="stepinfo">Discord:</h1>
-				<h1 class="primeinfo">asdasd</h1>
-			</div>
-			<div class="section__three">
-				<h1 class="stepinfo">Имя:</h1>
-				<h1 class="primeinfo">Захарий</h1>
-			</div>
-			<div class="section__four">
-				<p>Задача организации, в особенности же сложившаяся структура организации представляет собой интересный эксперимент проверки систем массового участия. Не следует, однако забывать, что консультация с широким активом позволяет оценить значение существенных финансовых и административных условий.</p>
-			</div>
-		</div>
-		<div class="card">
-			<div class="section__one">
-				<h1 class="gamename">CS GO</h1>
-				<h1 class="nickname">DIROZ</h1>
-			</div>
-			<div class="section__two">
-				<h1 class="stepinfo">Discord:</h1>
-				<h1 class="primeinfo">ERROR#4127</h1>
-			</div>
-			<div class="section__three">
-				<h1 class="stepinfo">Имя:</h1>
-				<h1 class="primeinfo">Захарий</h1>
-			</div>
-			<div class="section__four">
-				<p>Задача организации, в особенности же сложившаяся структура организации представляет собой интересный эксперимент проверки систем массового участия. Не следует, однако забывать, что консультация с широким активом позволяет оценить значение существенных финансовых и административных условий.</p>
-			</div>
-		</div>
-		<div class="card card-vip">
-			<div class="section__one">
-				<h1 class="gamename vip_text">CS GO</h1>
-				<h1 class="nickname">DIROZ</h1>
-			</div>
-			<div class="section__two">
-				<h1 class="stepinfo">Discord:</h1>
-				<h1 class="primeinfo">ERROR#4127</h1>
-			</div>
-			<div class="section__three">
-				<h1 class="stepinfo">Имя:</h1>
-				<h1 class="primeinfo">Захарий</h1>
-			</div>
-			<div class="section__four">
-				<p>Задача организации, в особенности же сложившаяся структура организации представляет собой интересный эксперимент проверки систем массового участия. Не следует, однако забывать, что консультация с широким активом позволяет оценить значение существенных финансовых и административных условий.</p>
-			</div>
-		</div>
-		<div class="card">
-			<div class="section__one">
-				<h1 class="gamename">CS GO</h1>
-				<h1 class="nickname">DIROZ</h1>
-			</div>
-			<div class="section__two">
-				<h1 class="stepinfo">Discord:</h1>
-				<h1 class="primeinfo">ERROR#4127</h1>
-			</div>
-			<div class="section__three">
-				<h1 class="stepinfo">Имя:</h1>
-				<h1 class="primeinfo">Захарий</h1>
-			</div>
-			<div class="section__four">
-				<p>Задача организации, в особенности же сложившаяся структура организации представляет собой интересный эксперимент проверки систем массового участия. Не следует, однако забывать, что консультация с широким активом позволяет оценить значение существенных финансовых и административных условий.</p>
-			</div>
-		</div>
-		<div class="card">
-			<div class="section__one">
-				<h1 class="gamename">CS GO</h1>
-				<h1 class="nickname">DIROZ</h1>
-			</div>
-			<div class="section__two">
-				<h1 class="stepinfo">Discord:</h1>
-				<h1 class="primeinfo">ERROR#4127</h1>
-			</div>
-			<div class="section__three">
-				<h1 class="stepinfo">Имя:</h1>
-				<h1 class="primeinfo">Захарий</h1>
-			</div>
-			<div class="section__four">
-				<p>Задача организации, в особенности же сложившаяся структура организации представляет собой интересный эксперимент проверки систем массового участия. Не следует, однако забывать, что консультация с широким активом позволяет оценить значение существенных финансовых и административных условий.</p>
-			</div>
-		</div>
+		{{/each}}
 	</div>
 </div>

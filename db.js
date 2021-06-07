@@ -46,6 +46,38 @@ let users = sequelize.define('users', {
   timestamps: true // Колонки createdAt и updatedAt будут созданы автоматически
 });
 
+// Создаём описание таблички posts
+let posts = sequelize.define('posts', {
+  id: {
+    allowNull: false,
+    autoIncrement: true,
+    primaryKey: true,
+    type: Sequelize.DataTypes.INTEGER
+  },
+  user: {
+    type: Sequelize.DataTypes.STRING,
+    allowNull: false
+  },
+  vip: {
+    type: Sequelize.DataTypes.BOOLEAN
+  },
+  title: {
+    type: Sequelize.DataTypes.STRING
+  },
+  game: {
+    type: Sequelize.DataTypes.STRING
+  },
+  discord: {
+    type: Sequelize.DataTypes.STRING
+  },
+  name: {
+    type: Sequelize.DataTypes.STRING
+  }
+}, {
+  timestamps: true // Колонки createdAt и updatedAt будут созданы автоматически
+});
+
+
 sequelize.sync();
 
 module.exports = sequelize;

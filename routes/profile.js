@@ -6,10 +6,16 @@ router.use((request, response, next) => {
 	next();
 });
 
-router.get("/", (request, response) => {
+router.get("/", async (request, response) => {
+	let posts = await System.db.models.posts.findAll({
+		where: {
+			login: request.session.logged_user.login
+		}
+	});
 	response.render("profile", {
 			title: "  TeamSearch | " + request.session.logged_user.login,
-			session: request.session.logged_user
+			session: request.session.logged_user,
+			posts: posts
 	});
 });
 
