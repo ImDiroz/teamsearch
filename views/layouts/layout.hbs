@@ -8,10 +8,10 @@
         img-src *;
         font-src 'self' fonts.googleapis.com https://teamsearch.ru/;
         style-src 'self' https://teamsearch.ru/;
-        style-src-elem 'self';
-        style-src-attr 'self';
-        script-src-elem 'self' fonts.googleapis.com;
-        script-src-attr 'self';
+        style-src-elem 'self' fonts.googleapis.com;
+        style-src-attr 'self' 'unsafe-inline';
+        script-src-elem 'self' 'unsafe-inline';
+        script-src-attr 'self' 'unsafe-inline';
         child-src 'none';
         script-src 'self' https://mc.yandex.ru/ *.googlesyndication.com https://cdn.ampproject.org/v0/ https://teamsearch.ru/
     ">
@@ -21,6 +21,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="./images/favicon.png" type="image/png">
     <link rel="stylesheet" href="./css/null.css">
+
+    <script type="text/javascript" >
+        (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+        (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+        ym(80309821, "init", {
+                clickmap:true,
+                trackLinks:true,
+                accurateTrackBounce:true,
+                webvisor:true
+        });
+    </script>
+    <noscript><div><img src="https://mc.yandex.ru/watch/80309821" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+    <script async custom-element="amp-ad" src="https://cdn.ampproject.org/v0/amp-ad-0.1.js"></script>
+    <script data-ad-client="ca-pub-5919549074999845" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 </head>
 <body style="opacity:0; transition: 1.5s;">
 
