@@ -1,6 +1,6 @@
 const express = module.exports.express = require("express");
 const expressHbs = module.exports.expressHbs = require("express-handlebars");
-const hbs = module.exports.hbs = require("./handlebars.js");
+const hbs = module.exports.hbs = require("hbs");
 const app = module.exports.app = express();
 const path = module.exports.path = require('path');
 const bodyParser = module.exports.bodyParser = require("body-parser");
@@ -16,10 +16,10 @@ let Setup = module.exports.Setup = () => {
 	console.log("Express handlebars");
 
 	app.engine("hbs", expressHbs({
-			layoutsDir: "views/layouts",
-			defaultLayout: "layout",
-			extname: "hbs"
-		}
+				layoutsDir: "views/layouts",
+				defaultLayout: "layout",
+				extname: "hbs"
+			}
 	));
 	app.set("view engine", "hbs");
 	

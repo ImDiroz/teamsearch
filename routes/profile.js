@@ -18,7 +18,13 @@ router.get("/", async (request, response) => {
 			title: "  TeamSearch | " + user.login,
 			session: user,
 			status: user.status.split(),
-			posts: posts
+			posts: posts,
+			helpers: {
+				ifeq: function (a, b, options) {
+					if (a == b) { return options.fn(this); }
+					return options.inverse(this);
+				}
+			}
 	});
 });
 
