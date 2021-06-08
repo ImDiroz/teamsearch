@@ -21,3 +21,5 @@ router.get("/", async (request, response) => {
         defaultPosts: posts
     });
 });
+
+module.exports = router;
