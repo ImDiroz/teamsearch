@@ -61,9 +61,6 @@ let posts = sequelize.define('posts', {
   vip: {
     type: Sequelize.DataTypes.BOOLEAN
   },
-  title: {
-    type: Sequelize.DataTypes.STRING
-  },
   game: {
     type: Sequelize.DataTypes.STRING
   },
@@ -71,6 +68,9 @@ let posts = sequelize.define('posts', {
     type: Sequelize.DataTypes.STRING
   },
   name: {
+    type: Sequelize.DataTypes.STRING
+  },
+  content: {
     type: Sequelize.DataTypes.STRING
   }
 }, {
