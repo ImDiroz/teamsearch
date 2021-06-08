@@ -12,3 +12,6 @@ let CreatePostPopupHide = (time = 100) => {
     $("#createpost-popup").fadeOut(time);
     return $("#createpost-popup");
 }
+
+document.querySelector(".cancelPost").onclick = CreatePostPopupHide;
+document.querySelector(".createPost").onclick = CreatePostPopupShow;
