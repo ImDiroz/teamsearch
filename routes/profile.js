@@ -10,7 +10,10 @@ router.get("/", async (request, response) => {
 	let posts = await System.db.models.posts.findAll({
 		where: {
 			user: request.session.logged_user.login
-		}
+		},
+		order: [
+			['id', 'DESC']
+		]
 	});
 	let user = request.session.logged_user;
 

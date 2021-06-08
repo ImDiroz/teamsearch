@@ -8,11 +8,18 @@ router.use((request, response, next) => {
 
 
 router.get("/", async (request, response) => {
-    let posts = await System.db.models.posts.findAll();
+    let posts = await System.db.models.posts.findAll({
+        order: [
+            ['id', 'DESC']
+        ]
+    });
     let vipPosts = await System.db.models.posts.findAll({
 		where: {
 			vip: true
-		}
+		},
+        order: [
+            ['id', 'DESC']
+        ]
 	});
 
     response.render("posts", {
@@ -40,7 +47,6 @@ router.post("/create", async (request, response) => {
 
     if (errors.length != 0) {
         response.send(errors[0]);
-        response.set("Connection", "close");
         response.end();
     }
 
