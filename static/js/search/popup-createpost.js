@@ -14,4 +14,4 @@ let CreatePostPopupHide = (time = 100) => {
 }
 
 document.querySelector(".cancelPost").onclick = CreatePostPopupHide;
-document.querySelector(".createPost").onclick = CreatePostPopupShow;
+document.querySelector(".createPostButton").onclick = CreatePostPopupShow;
