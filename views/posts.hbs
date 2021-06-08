@@ -1,49 +1,51 @@
 <link rel="stylesheet" href="./css/after-register.css">
 <div class="createpost-popup" id="createpost-popup" style="display: none;">
-	<div class="createpost-popup-content">
-		<h1 style="text-align: center;">Создание поста</h1>
-		<div style="display: flex; flex-direction: column; margin-bottom: 10px;">
-			<h1 style="margin-bottom: 10px;">Название игры</h1>
-			<div style="display: flex;">
-				<select style="margin-right: 5px;">
-					<option>Выберите игру...</option>
-					<option>CS:GO</option>
-					<option>Dota 2</option>
-					<option>Apex Legends</option>
-					<option>Valorant</option>
-					<option>Minecraft</option>
-					<option>Roblox</option>
-					<option>Raft</option>
-					<option>Rust</option>
-					<option>Garry's mod</option>
-					<option>DayZ</option>
-					<option>Stay Out</option>
-					<option>Team Fortress 2</option>
-					<option>SA:MP</option>
-					<option>CR:MP</option>
-					<option>BrawlStars</option>
-					<option>World of Tanks</option>
-					<option>Overwatch</option>
-					<option>Нету в списке</option>
-				</select>
-				<input placeholder="Введите название" type="text" class="othergame">
+	<form method="POST" action="/posts/create">
+		<div class="createpost-popup-content">
+			<h1 style="text-align: center;">Создание поста</h1>
+			<div style="display: flex; flex-direction: column; margin-bottom: 10px;">
+				<h1 style="margin-bottom: 10px;">Название игры</h1>
+				<div style="display: flex;">
+					<select style="margin-right: 5px;" name="game">
+						<option value="not selected">Выберите игру...</option>
+						<option value="CS:GO">CS:GO</option>
+						<option value="Dota 2">Dota 2</option>
+						<option value="Apex Legends">Apex Legends</option>
+						<option value="Valorant">Valorant</option>
+						<option value="Minecraft">Minecraft</option>
+						<option value="Roblox">Roblox</option>
+						<option value="Raft">Raft</option>
+						<option value="Rust">Rust</option>
+						<option value="Garry's mod">Garry's mod</option>
+						<option value="DayZ">DayZ</option>
+						<option value="Stay Out">Stay Out</option>
+						<option value="Team Fortress 2">Team Fortress 2</option>
+						<option value="SA:MP">SA:MP</option>
+						<option value="CR:MP">CR:MP</option>
+						<option value="BrawlStars">BrawlStars</option>
+						<option value="World of Tanks">World of Tanks</option>
+						<option value="Overwatch">Overwatch</option>
+						<option value="not selected">Нету в списке</option>
+					</select>
+					<input placeholder="Введите название" type="text" class="othergame" name="othergame">
+				</div>
 			</div>
-		</div>
-		<div style="display: flex; flex-direction: column; margin-bottom: 10px;">
-			<h1 style="margin-bottom: 10px;">Ваш дискорд:</h1>
-			<div style="display: flex;">
-				<input class="input" placeholder="Пример: TeamSearch#0000" type="text">
+			<div style="display: flex; flex-direction: column; margin-bottom: 10px;">
+				<h1 style="margin-bottom: 10px;">Ваш дискорд:</h1>
+				<div style="display: flex;">
+					<input class="input" placeholder="Пример: TeamSearch#0000" type="text" name="discord">
+				</div>
 			</div>
-		</div>
-		<div style="display: flex; flex-direction: column; margin-bottom: 10px;">
-			<h1 style="margin-bottom: 10px;">Описание</h1>
-			<div style="display: flex;">
-				<textarea maxlength="250" name="" id=""></textarea>
+			<div style="display: flex; flex-direction: column; margin-bottom: 10px;">
+				<h1 style="margin-bottom: 10px;">Описание</h1>
+				<div style="display: flex;">
+					<textarea maxlength="250" name="content" id=""></textarea>
+				</div>
 			</div>
+			<label><input class="checkbox" type="checkbox" name="vip" style="margin-bottom: 15px;">VIP</label>
+			<a class="cancelPost" style="text-align: center; cursor: pointer;">Передумал</a>
 		</div>
-		<label><input class="checkbox" type="checkbox" style="margin-bottom: 15px;">VIP</label>
-		<a class="cancelPost" style="text-align: center; cursor: pointer;">Передумал</a>
-	</div>
+	</form>
 </div>
 <header class="header">
 	<a href="profile.html"><div class="goto_profile">

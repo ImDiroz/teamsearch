@@ -22,4 +22,37 @@ router.get("/", async (request, response) => {
     });
 });
 
+router.post("/create", async (request, response) => {
+    let errors = [];
+    let user = request.session.logged_user;
+
+    if (request.body.game == "not selected") {
+        if (request.body.othergame.trim() == "") errors.push("Введите название игры!");
+        else game = request.body.othergame;
+    }
+    else game = request.body.game;
+
+    if (request.body.discord.trim() == "") errors.push("Введите дискорд!");
+    if (request.body.content.trim() == "") errors.push("Введите описание!");
+    if (request.body.vip) {
+        if (user.status.search("c") == -1) errors.push("У вас нет випа");
+    }
+
+    if (errors.length != 0) {
+        response.send(errors[0]);
+        response.set("Connection", "close");
+        response.end();
+    }
+
+    await System.db.models.posts.create({
+        user: user.login,
+        vip: request.body.vip,
+        game: game,
+        name: user.login,
+        content: request.body.content
+    });
+
+    response.redirect("/posts");
+});
+
 module.exports = router;
