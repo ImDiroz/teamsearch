@@ -58,6 +58,9 @@ let posts = sequelize.define('posts', {
     type: Sequelize.DataTypes.STRING,
     allowNull: false
   },
+  content: {
+    type: Sequelize.DataTypes.STRING
+  },
   vip: {
     type: Sequelize.DataTypes.BOOLEAN
   },
@@ -68,9 +71,6 @@ let posts = sequelize.define('posts', {
     type: Sequelize.DataTypes.STRING
   },
   name: {
-    type: Sequelize.DataTypes.STRING
-  },
-  content: {
     type: Sequelize.DataTypes.STRING
   }
 }, {
