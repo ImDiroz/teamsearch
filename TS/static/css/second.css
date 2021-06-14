@@ -1,0 +1,17 @@
+.warning {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 483px;
+    height: 44px;
+    background: #373737;
+    position: absolute;
+    left: 35%;
+	top: 0px;
+    font-family: Montserrat;
+    font-weight: normal;
+    font-size: 18px;
+    color: #FFFFFF;
+    opacity: 0.9;
+    z-index: 100;
+}

@@ -1,0 +1,118 @@
+<link rel="stylesheet" href="./css/after-register.css">
+<div class="createpost-popup" id="createpost-popup" style="display: none;">
+	<form method="POST" action="/posts/create">
+		<div class="createpost-popup-content">
+			<h1 style="text-align: center;">Создание поста</h1>
+			<div style="display: flex; flex-direction: column; margin-bottom: 10px;">
+				<h1 style="margin-bottom: 10px;">Название игры</h1>
+				<div style="display: flex;">
+					<select style="margin-right: 5px;" name="game">
+						<option value="not selected">Выберите игру...</option>
+						<option value="CS:GO">CS:GO</option>
+						<option value="Dota 2">Dota 2</option>
+						<option value="Apex Legends">Apex Legends</option>
+						<option value="Valorant">Valorant</option>
+						<option value="Minecraft">Minecraft</option>
+						<option value="Roblox">Roblox</option>
+						<option value="Raft">Raft</option>
+						<option value="Rust">Rust</option>
+						<option value="Garry's mod">Garry's mod</option>
+						<option value="DayZ">DayZ</option>
+						<option value="Stay Out">Stay Out</option>
+						<option value="Team Fortress 2">Team Fortress 2</option>
+						<option value="SA:MP">SA:MP</option>
+						<option value="CR:MP">CR:MP</option>
+						<option value="BrawlStars">BrawlStars</option>
+						<option value="World of Tanks">World of Tanks</option>
+						<option value="Overwatch">Overwatch</option>
+						<option value="not selected">Нету в списке</option>
+					</select>
+					<input placeholder="Введите название" type="text" class="othergame" name="othergame">
+				</div>
+			</div>
+			<div style="display: flex; flex-direction: column; margin-bottom: 10px;">
+				<h1 style="margin-bottom: 10px;">Ваш дискорд:</h1>
+				<div style="display: flex;">
+					<input class="input" placeholder="Пример: TeamSearch#0000" type="text" name="discord">
+				</div>
+			</div>
+			<div style="display: flex; flex-direction: column; margin-bottom: 10px;">
+				<h1 style="margin-bottom: 10px;">Описание</h1>
+				<div style="display: flex;">
+					<textarea maxlength="250" name="content" id=""></textarea>
+				</div>
+			</div>
+			<label><input class="checkbox" type="checkbox" name="vip" style="margin-bottom: 15px;">VIP</label>
+			<button type="submit">Создать</button>
+			<a class="cancelPost" style="text-align: center; cursor: pointer;">Передумал</a>
+		</div>
+	</form>
+</div>
+<header class="header">
+	<a href="/profile"><div class="goto_profile">
+		<div class="svg_arrow_down"></div>
+		<img src="./images/main/Profileicon.png" class="logo-h-and-w" width="73" height="73">
+		<h1 class="main_goto_profile_text">Профиль</h1>
+	</div></a>
+	<div class="header_menu_box">
+		<h1 class="header_menu"><a href="/">Главная</a></h1>
+		<h1 class="header_menu active">Поиск</h1>
+		<h1 class="header_menu"><a href="/shop">Магазин</a></h1>
+	</div>
+	<div class="logo__title">
+		<img src="./images/main/logo.png" width="75" height="68">
+		<a href="/"><h1 class="teamsearch_logo">TeamSearch</h1></a>
+	</div>
+</header>
+<div class="search-content">
+	<div style="width: 100%;">
+		<div class="main-button createPostButton" style="float: right; margin-bottom: 10px;">Новый пост</div>
+	</div>
+	<h1 class="vip">VIP</h1>
+	<div class="vip__row">
+	{{#each vipPosts}}
+		<div class="card card-vip">
+			<div class="section__one">
+				<h1 class="gamename vip_text">{{this.dataValues.game}}</h1>
+				<h1 class="nickname">{{this.dataValues.user}}</h1>
+			</div>
+			<div class="section__two">
+				<h1 class="stepinfo">Discord:</h1>
+				<h1 class="primeinfo">{{this.dataValues.discord}}</h1>
+			</div>
+			<div class="section__three">
+				<h1 class="stepinfo">Имя:</h1>
+				<h1 class="primeinfo">{{this.dataValues.name}}</h1>
+			</div>
+			<div class="section__four">
+				<p>{{this.dataValues.content}}</p>
+			</div>
+		</div>
+	{{/each}}
+	</div>
+	<h2>Хочешь так же? <a href="/donate">VIP подписка всего за 99 рублей в неделю!</a></h2>
+	<div class="ad"></div>
+	<h1 class="default">Default</h1>
+	<div class="default__row">
+		{{#each defaultPosts}}
+			<div class="card card">
+				<div class="section__one">
+					<h1 class="gamename">{{this.dataValues.game}}</h1>
+					<h1 class="nickname">{{this.dataValues.user}}</h1>
+				</div>
+				<div class="section__two">
+					<h1 class="stepinfo">Discord:</h1>
+					<h1 class="primeinfo">{{this.dataValues.discord}}</h1>
+				</div>
+				<div class="section__three">
+					<h1 class="stepinfo">Имя:</h1>
+					<h1 class="primeinfo">{{this.dataValues.name}}</h1>
+				</div>
+				<div class="section__four">
+					<p>{{this.dataValues.content}}</p>
+				</div>
+			</div>
+		{{/each}}
+	</div>
+</div>
+<script src="./js/search/popup-createpost.js"></script>

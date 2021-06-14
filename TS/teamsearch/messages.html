@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="static/images/favicon.png" type="image/png">
+    <link rel="stylesheet" href="static/css/null.css">
+    <link rel="stylesheet" href="static/css/second.css">
+    <link rel="stylesheet" href="static/css/after-register.css">
+    <script src="http://code.jquery.com/jquery-1.8.3.js"></script>
+    <title>TeamSearch | Сообщения</title>
+</head>
+<body style="opacity:0; transition: 1.5s;">
+    <header class="header">
+        <a href="profile.html"><div class="goto_profile">
+            <div class="svg_arrow_down"></div>
+            <img src="static/images/main/Profileicon.png" class="logo-h-and-w" width="73" height="73">
+            <h1 class="main_goto_profile_text">Профиль</h1>
+        </div></a>
+        <div class="header_menu_box">
+            <h1 class="header_menu"><a href="index.html">Главная</a></h1>
+            <h1 class="header_menu"><a href="search.html">Поиск</a></h1>
+            <h1 class="header_menu"><a href="shop.html">Магазин</a></h1>
+        </div>
+        <div class="logo__title">
+            <img src="static/images/main/logo.png" width="75" height="68">
+            <a href="index.html"><h1 class="teamsearch_logo">TeamSearch</h1></a>
+        </div>
+    </header>
+    <div class="messages__content">
+        <div class="section">
+            <div class="message__section">
+                <div class="yourmessage">Короче, погнали в дискорд, там все обговорим</div>
+            </div>
+            <div class="message__section">
+                <div class="othermessage">окей, держи дс</div>
+            </div>
+            <div class="message__section">
+                <div class="othermessage">BRUH#2735</div>
+            </div>
+            <div class="message__section">
+                <div class="yourmessage">Отправил</div>
+            </div>
+            <div class="message__section">
+                <div class="othermessage">Принял</div>
+            </div>
+        </div>
+        <div class="section__two">
+            <p>Диалог с <a href="profile.html">DIROZ</a></p>
+            <div class="row">
+                <input type="text" placeholder="Тут можно написать сообщение :D">
+                <div class="main-button">Отправить</div>
+            </div>
+        </div>
+    </div>
+    <p class="not_supported">Недоступно для моб. устройств.</p>
+    <p class="not_supported">Моб. версия сайта - <a href="https://m.teamsearch.ru">m.teamsearch.ru</a></p>
+    <script>
+        $(document).ready(function() {    
+          $("body").css("opacity", "1");
+        });
+      </script>
+</body>
+</html>
