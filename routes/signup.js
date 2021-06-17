@@ -8,19 +8,27 @@ router.use((request, response, next) => {
 
 router.get("/", (request, response) => {
 	response.render("signup", {
-			title: "TeamSearch | Регистрация"
+		title: "TeamSearch | Регистрация"
 	});
 });
 
 router.post("/", async (request, response) => {
 	let errors = [];
+	let checkbox_value = request.body.checkbox;
+
+	if (checkbox_value == undefined) {
+		response.send("Для регистрации/входа, Вы должны согласиться со всеми правилами проекта!")
+		response.set("Connection", "close")
+	}
 
 	// validating
 
-	let findUser = await System.db.models.users.findOne({ where: { 
-		login: request.body.login,
-		email: request.body.email
-	}});
+	let findUser = await System.db.models.users.findOne({
+		where: {
+			login: request.body.login,
+			email: request.body.email
+		}
+	});
 
 	if (request.body.email.trim() == "") errors.push("Введите email");
 	if (request.body.login.trim() == "") errors.push("Введите login");
@@ -34,19 +42,19 @@ router.post("/", async (request, response) => {
 	}
 
 	System.bcrypt.hash(request.body.password, 10, (err, hash) => { //crypting user password
-        	System.db.models.users.create({ // creating user
-				email: request.body.email,
-				login: request.body.login,
-				password: hash, // hash of password
-				status: "",
-				file: "./images/profile/avatar.png",
-				description: "Нам не дали"
-		 	});
-    	});
+		System.db.models.users.create({ // creating user
+			email: request.body.email,
+			login: request.body.login,
+			password: hash, // hash of password
+			status: "",
+			file: "./images/profile/avatar.png",
+			description: "Нам не дали"
+		});
+	});
 
 	response.render("signup", {
-            title: "TeamSearch | Успешная регистрация"
-    });
+		title: "TeamSearch | Успешная регистрация"
+	});
 });
 
 module.exports = router;
