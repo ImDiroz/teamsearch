@@ -13,10 +13,19 @@ router.get("/", (request, response) => {
 });
 
 router.post("/", async (request, response) => {
+	let checkbox_value = request.body.checkbox;
+
+	if (checkbox_value == undefined) {
+		response.send("Для регистрации/входа, Вы должны согласиться со всеми правилами проекта!")
+		response.set("Connection", "close")
+	}
+
 	let errors = [];
-	let user = await System.db.models.users.findOne({ where: { 
-		login: request.body.login
-	}});
+	let user = await System.db.models.users.findOne({
+		where: {
+			login: request.body.login
+		}
+	});
 
 	if (user == undefined) {
 		response.send("Такого пользователя не существует!");
